@@ -1,0 +1,25 @@
+# Print Inspector - dependencies (Python 3.11, Windows 10/11, 64-bit)
+# All packages run fully offline once installed. Versions are pinned to a
+# mutually compatible set that ships prebuilt Windows wheels for Python 3.11.
+
+# --- Runtime ---------------------------------------------------------------
+numpy==1.26.4
+# Headless build: we never use cv2.imshow, and the headless wheel avoids
+# bundling a second copy of Qt that can conflict with PySide6.
+opencv-python-headless==4.10.0.84
+scikit-image==0.24.0
+# Pillow: reads EXIF orientation, DPI and TIFF tags from file headers only
+# (pixels are decoded by OpenCV). Already required by scikit-image; pinned here.
+pillow==10.4.0
+PySide6==6.7.3
+# zxing-cpp: barcode / QR code decoding (ZXing-C++, Apache-2.0). The wheel contains
+# the compiled library; no network access, services or licence keys are involved.
+zxing-cpp==3.1.1
+
+# --- Testing ---------------------------------------------------------------
+pytest==8.3.3
+# pytest-qt: drives the PySide6 GUI in tests (offline, test-only).
+pytest-qt==4.4.0
+
+# --- Packaging -------------------------------------------------------------
+pyinstaller==6.10.0

@@ -1,0 +1,12 @@
+alignment_demo_output/
+registration_demo_output/
+comparison_demo_output/
+tesseract/
+.venv-build/
+build/
+dist/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
